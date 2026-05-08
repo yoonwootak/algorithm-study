@@ -1,27 +1,26 @@
 import java.util.*;
-import java.lang.*;
 import java.io.*;
 
 class Main {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int num = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
 
-        for (int i=0; i<num; i++) {
-            String s = br.readLine();
-            int temp = 0;
+        for (int i=0; i<n; i++) {
+            String S = br.readLine();
             int score = 0;
+            int sum = 0;
 
-            for (int j=0; j<s.length(); j++) {
-                if (s.charAt(j) == 'X') {
-                    temp = 0;
+            for (int j=0; j<S.length(); j++) {
+                char c = S.charAt(j);
+
+                if (c == 'O') {
+                    score += ++sum;
                 }
                 else {
-                    temp++;
-                    score += temp;
+                    sum = 0;
                 }
             }
-
             System.out.println(score);
         }
     }
